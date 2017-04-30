@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msparametros
+  labels:
+    app: msparametros
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: msparametros
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: msparametros
+  labels:
+    app: msparametros
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: msparametros
+        tier: frontend
+    spec:
+      containers:
+      - image: mzegarra/msparametros:1.0
+        name: msparametros
+        ports:
+        - containerPort: 8080
+          name: msparametros

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msparametrosdb
+  labels:
+    app: msparametrosdb
+    tier: postgress
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: msparametrosdb
+    tier: postgress
+  clusterIP: None
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: msparametrosdb
+  labels:
+    app: msparametrosdb
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: msparametrosdb
+        tier: postgress
+    spec:
+      containers:
+      - image: mzegarra/msparametrosdb:1.0
+        name: msparametrosdb
+        ports:
+        - containerPort: 5432
+          name: postgress  
