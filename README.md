@@ -3,7 +3,7 @@
 Microservice parámetros
 
 ### Clonar el repositorio ###
-git clone git@github.com:whatever .
+git clone https://github.com/mzegarras/MicroserviceK8S.git .
 
 ### Generar imagen de base datos ###
 
