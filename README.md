@@ -4,6 +4,8 @@ Microservice parámetros
 
 ### Clonar el repositorio ###
 git clone https://github.com/mzegarras/MicroserviceK8S.git .
+docker pull mzegarra/msparametros:1.0
+docker pull mzegarra/msparametrosdb:1.0
 
 ### Generar imagen de base datos ###
 
