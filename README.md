@@ -117,3 +117,6 @@ msparametrosdb-4246394331-gq9sg   1/1       Running   0          22m
 
 2.- Ver logs
 kubectl logs msparametros-1381946421-67vwg
+
+
+ 
