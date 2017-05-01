@@ -51,7 +51,7 @@ docker build -t msparametros:2.0 .
 docker rm msparametros -f
 
 2.- Crear container msparametros
-docker run --name msparametros -p 8080:8080 -d --link=msparametrosdb msparametros:1.0
+docker run --name msparametros -p 8080:8080 -d --link=msparametrosdb msparametros:2.0
 
 curl -H "Content-Type:application/json" http://localhost:8080/ms-parametros/api/country/v1/list
 
@@ -73,11 +73,11 @@ docker rm msparametros -f
 docker login
 
 docker tag msparametrosdb:1.0 mzegarra/msparametrosdb:1.0
-docker tag msparametros:1.0 mzegarra/msparametros:1.0
+docker tag msparametros:2.0 mzegarra/msparametros:2.0
 
 
 docker push mzegarra/msparametrosdb:1.0
-docker push mzegarra/msparametros:1.0
+docker push mzegarra/msparametros:2.0
 
 ### Crear tu cuenta en aws, azure o google cloud ###
 
