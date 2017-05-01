@@ -43,7 +43,7 @@ exit
 
 1.- Ingresar a consola y ubicarse en la carpeta "msservice"
 
-docker build -t msparametros:1.0 .
+docker build -t msparametros:2.0 .
 
 ### Probar imagen msparametros:1.0 ###
 
@@ -117,6 +117,3 @@ msparametrosdb-4246394331-gq9sg   1/1       Running   0          22m
 
 2.- Ver logs
 kubectl logs msparametros-1381946421-67vwg
-
-
- 
