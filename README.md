@@ -117,3 +117,19 @@ msparametrosdb-4246394331-gq9sg   1/1       Running   0          22m
 
 2.- Ver logs
 kubectl logs msparametros-1381946421-67vwg
+
+#Definir autoscaling
+
+kubectl get hpa
+kubectl delete hpa/msparametros
+kubectl describe hpa
+
+
+kubectl autoscale deployment/msparametros --min=1 --max=10 --cpu-percent=1
+
+kubectl autoscale deployment msparametros --min=1 --max=10 --cpu-percent=5
+
+
+while true; do curl -H "Content-Type:application/json" http://13.91.58.229/ms-parametros/api/country/v1/list; done
+
+while true; do curl http://13.64.113.138/; done
