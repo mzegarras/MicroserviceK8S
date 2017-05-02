@@ -124,8 +124,12 @@ kubectl get hpa
 kubectl delete hpa/msparametros
 kubectl describe hpa
 
-
 kubectl autoscale deployment/msparametros --min=1 --max=10 --cpu-percent=1
-
 kubectl autoscale deployment msparametros --min=1 --max=10 --cpu-percent=5
 
+### Load test gatling
+
+docker build -t msload:5.0 .
+docker tag msload:5.0 mzegarra/msload:5.0
+docker push mzegarra/msload:5.0
+kubectl run -i -t --tty load-generator4 --image=mzegarra/msload:5.0
