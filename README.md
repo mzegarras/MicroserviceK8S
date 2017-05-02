@@ -136,4 +136,4 @@ kubectl run -i -t --tty load-generator4 --image=mzegarra/msload:5.0
 
 
 
-![Alt text](!MicroserviceK8S/autoscale-pods.png "Autoscale")
+![Alt text](https://github.com/mzegarras/MicroserviceK8S/blob/master/autoscale-pods.png "Autoscale")
