@@ -133,3 +133,7 @@ docker build -t msload:5.0 .
 docker tag msload:5.0 mzegarra/msload:5.0
 docker push mzegarra/msload:5.0
 kubectl run -i -t --tty load-generator4 --image=mzegarra/msload:5.0
+
+
+
+![Alt text](!MicroserviceK8S/autoscale-pods.png "Autoscale")
