@@ -1,0 +1,4 @@
+net/msonic/parametros/rest/dao/impl/VersionRepositoryImpl.class
+net/msonic/parametros/rest/dao/VersionRepository.class
+net/msonic/parametros/rest/dao/CountryRepository.class
+net/msonic/parametros/rest/dao/impl/CountryRepositoryImpl.class

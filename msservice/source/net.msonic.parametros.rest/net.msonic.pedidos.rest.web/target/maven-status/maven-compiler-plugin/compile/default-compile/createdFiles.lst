@@ -1,0 +1,4 @@
+net/msonic/parametros/rest/ParamServerApplication.class
+net/msonic/parametros/rest/controller/VersionController.class
+net/msonic/parametros/rest/controller/CountryController.class
+net/msonic/parametros/rest/config/WebConfiguration.class

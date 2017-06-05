@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: jenkins
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jenkins
+        tier: frontend
+    spec:
+      containers:
+      - image: mzegarra/jenkinsms:3.0
+        name: jenkins
+        volumeMounts:
+        - name: azure
+          mountPath: /var/jenkins_home
+        ports:
+        - containerPort: 8080
+        - containerPort: 5000
+          name: jenkins
+      volumes:
+        - name: azure
+          azureFile:
+            secretName: azure-secret
+            shareName: jenkins1
+            readOnly: false

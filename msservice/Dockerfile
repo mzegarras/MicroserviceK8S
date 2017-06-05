@@ -1,6 +1,6 @@
 FROM frolvlad/alpine-oraclejdk8:slim
 MAINTAINER Manuel Zegarra "mzegarra@gmail.com"
-ENV REFRESHED_AT 2017-04-19 22:46
+ENV REFRESHED_AT 2017-05-24 22:01
 ADD ./net.msonic.pedidos.rest.web-1.0-SNAPSHOT.jar app.jar
 RUN sh -c 'touch /app.jar'
 EXPOSE 8080

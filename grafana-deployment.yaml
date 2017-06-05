@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: msgrafana
+  labels:
+    app: msgrafana
+spec:
+  ports:
+    - port: 8080
+      targetPort: 3000
+  selector:
+    app: msgrafana
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: msgrafana
+  labels:
+    app: msgrafana
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: msgrafana
+        tier: frontend
+    spec:
+      containers:
+      - image: grafana/grafana
+        name: msgrafana
+        ports:
+        - containerPort: 8080
+          name: msgrafana

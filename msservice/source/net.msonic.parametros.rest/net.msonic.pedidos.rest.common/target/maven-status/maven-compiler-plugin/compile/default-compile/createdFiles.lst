@@ -1,0 +1,4 @@
+net/msonic/parametros/rest/common/Version.class
+net/msonic/parametros/rest/common/Country.class
+net/msonic/parametros/rest/common/DetalleRespuesta.class
+net/msonic/parametros/rest/common/TransactionResponse.class

@@ -29,7 +29,7 @@ spec:
         tier: postgress
     spec:
       containers:
-      - image: mzegarra/msparametrosdb:1.0
+      - image: rcapi.azurecr.io/poc/msparametrosdb:3.0
         name: msparametrosdb
         ports:
         - containerPort: 5432

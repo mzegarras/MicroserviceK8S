@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  context-path: /ms-parametros/api/
+  compression:
+    enabled: true
+    mime-types:
+    - application/json
+    - application/xml
+    - text/xml
+    - text/plain
+  tomcat:
+    max-threads: 5
+spring:
+  application:
+    name: ms-parametros
+  datasource:
+    url: jdbc:postgresql://msparametrosdb:5432/docker
+    username: docker
+    password: docker
+    driver-class-name: org.postgresql.Driver
+    
+
+   

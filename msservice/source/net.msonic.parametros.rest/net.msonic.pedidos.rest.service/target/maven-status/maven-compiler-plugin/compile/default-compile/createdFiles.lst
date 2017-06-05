@@ -1,0 +1,4 @@
+net/msonic/parametros/rest/service/CountryService.class
+net/msonic/parametros/rest/service/impl/CountryServiceImpl.class
+net/msonic/parametros/rest/service/impl/VersionServiceImpl.class
+net/msonic/parametros/rest/service/VersionService.class

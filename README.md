@@ -24,7 +24,7 @@ docker run --name msparametrosdb -d msparametrosdb:1.0
 3.- Conectarnos al container, prompt debe cambiar ("root@0767600f24c3:/#" ):
 
 docker exec -i -t msparametrosdb /bin/bash
-psql -h localhost -U postgres
+psql -h localhost -U docker
 
 4.- Listar valores de la tabla
 docker=# select * from country;
@@ -43,7 +43,7 @@ exit
 
 1.- Ingresar a consola y ubicarse en la carpeta "msservice"
 
-docker build -t msparametros:2.0 .
+docker build -t msparametros:3.0 .
 
 ### Probar imagen msparametros:1.0 ###
 
@@ -51,9 +51,10 @@ docker build -t msparametros:2.0 .
 docker rm msparametros -f
 
 2.- Crear container msparametros
-docker run --name msparametros -p 8080:8080 -d --link=msparametrosdb msparametros:2.0
+docker run --name msparametros -p 8080:8080 -d --link=msparametrosdb msparametros:3.0
 
 curl -H "Content-Type:application/json" http://localhost:8080/ms-parametros/api/country/v1/list
+curl -H "Content-Type:application/json" http://localhost:8080/ms-parametros/api/version/v1/list/6.8/1
 
 [ {
   "id" : 1,
@@ -103,7 +104,9 @@ msparametrosdb   None          <none>          5432/TCP       19m
 
 2.- Invocar al rest service
 
-curl -H "Content-Type:application/json" http://13.91.58.229/ms-parametros/api/country/v1/list
+curl -H "Content-Type:application/json" http://52.168.24.140/ms-parametros/api/country/v1/list
+curl -H "Content-Type:application/json" http://52.168.24.140/ms-parametros/api/version/v1/list/6.8/1
+
 
 
 ### Obtener pods
@@ -124,7 +127,7 @@ kubectl get hpa
 kubectl delete hpa/msparametros
 kubectl describe hpa
 
-kubectl autoscale deployment/msparametros --min=1 --max=10 --cpu-percent=1
+kubectl autoscale deployment/msparametros --min=1 --max=10 --cpu-percent=80
 kubectl autoscale deployment msparametros --min=1 --max=10 --cpu-percent=5
 
 ### Load test gatling
@@ -137,3 +140,6 @@ kubectl run -i -t --tty load-generator4 --image=mzegarra/msload:5.0
 
 
 ![Alt text](https://github.com/mzegarras/MicroserviceK8S/blob/master/autoscale-pods.png "Autoscale")
+
+
+
