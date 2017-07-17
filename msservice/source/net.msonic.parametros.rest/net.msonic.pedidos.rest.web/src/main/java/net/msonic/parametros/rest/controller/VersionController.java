@@ -27,5 +27,12 @@ public class VersionController {
 		
 	}
 	
+	@RequestMapping(value = "/v2/list/{version}/{type}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public TransactionResponse list(@PathVariable("version") String version,@PathVariable("type") String type) {
+		
+		return versionService.list(version, type, "1");
+		
+	}
 
 }
